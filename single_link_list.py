@@ -1,43 +1,32 @@
-class Node(object):
-    'single link list'
+#! /usr/bin/env python
 
-    def __init__(self, data, link):
-        self.data = data
-        self.link = link
-
-
-head = None
-# tail = None
-# node1 = Node("A", head)
-# node2 = Node("B", node1)
-# node3 = Node("B", node2)
-# node4 = Node("D", tail)
+class node:
+    def __init__(self):
+        self.data = None # contains the data
+        self.next = None # contains the reference to the next node
 
 
+class linked_list:
+    def __init__(self):
+        self.cur_node = None
 
-print("adding")
-for index in range(5):
-    print(index)
-    head = Node(str(index), head)
+    def add_node(self, data):
+        new_node = node() # create a new node
+        new_node.data = data
+        new_node.next = self.cur_node # link the new node to the 'previous' node.
+        self.cur_node = new_node #  set the current node to the new one.
 
-print("displaying")
-while head != None:
-    print(head.data)
-    head = head.link
-
-print ("nextTime")
-
-while head!=None:
-	print(head.data)
-	head = head.link
+    def list_print(self):
+        node = self.cur_node # cant point to ll!
+        while node:
+            print node.data
+            node = node.next
 
 
 
+ll = linked_list()
+ll.add_node(1)
+ll.add_node(2)
+ll.add_node(3)
 
-
-#
-# print(node1.data)
-# print(node1.link)
-
-# while end in not None:
-
+ll.list_print()
